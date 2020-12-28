@@ -372,8 +372,9 @@ class TickerBase():
         except Exception:
             pass
 
-        # get fundamentals
-        data = utils.get_json(url+'/financials', proxy)
+        # get fundamentals        
+        url = "{}/{}/financials".format(self._scrape_url, self.ticker)   # 追加
+        data = utils.get_json(url, proxy)    
 
         # generic patterns
         for key in (
